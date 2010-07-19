@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ThemedTestApp">
+</Property><Property Name="Solution File" Value="C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\ThemedTestApp.sln">
+</Property><Property Name="User Options File" Value="C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\ThemedTestApp.suo">
+</Property><Property Name="Date" Value="Σάββατο, 31 Οκτωβρίου 2009">
+</Property><Property Name="Time" Value="15:24 μμ">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ThemedTestApp.sln" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\ThemedTestApp.sln">
+</Event><Event ErrorLevel="0" Project="" Source="ThemedTestApp.suo" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\ThemedTestApp.suo">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="ThemedTestApp.csproj" Description="Project file successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\ThemedTestApp.csproj">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="ThemedTestApp.csproj.user" Description="Project user file successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\ThemedTestApp.csproj.user">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="AboutForm.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\AboutForm.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="properties_set.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\properties_set.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="Program.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\Program.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="FlickerFreeRichEditTextBox.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\FlickerFreeRichEditTextBox.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="Form1.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\Form1.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="Properties\Resources.Designer.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="SyntaxReader.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\SyntaxReader.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="properties_control.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\properties_control.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="properties_control.Designer.cs" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\properties_control.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="App.ico" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="AboutForm.resx" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\AboutForm.resx">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="FlickerFreeRichEditTextBox.resx" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\FlickerFreeRichEditTextBox.resx">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="Form1.resx" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="Properties\Resources.resx" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="properties_control.resx" Description="File successfully backed up as C:\Documents and Settings\Team1\Desktop\interface\interface\Visual Studio 2005\Backup\properties_control.resx">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="ThemedTestApp.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ThemedTestApp" Source="ThemedTestApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ThemedTestApp.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="ThemedTestApp.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ThemedTestApp" Source="ThemedTestApp.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
