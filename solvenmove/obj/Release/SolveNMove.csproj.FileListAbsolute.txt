@@ -1,7 +1,0 @@
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\bin\Release\solvenmove.dll
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\bin\Release\solvenmove.pdb
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\bin\Release\IR52cLow.dll
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\bin\Release\IR52cLow.pdb
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\obj\Release\ResolveAssemblyReference.cache
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\obj\Release\solvenmove.dll
-C:\Documents and Settings\Team1\Desktop\My Dropbox\Project1\100407\solvenmove\obj\Release\solvenmove.pdb
