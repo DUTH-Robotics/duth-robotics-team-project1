@@ -290,6 +290,8 @@ namespace ColorSyntaxEditor
         private Timer timer3;
         private Timer timer4;
         private Timer timer5;
+        private Button button50;
+        private Button button51;
         private Color kCommentColor = Color.Green;
         #endregion
 
@@ -474,7 +476,6 @@ namespace ColorSyntaxEditor
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button48 = new System.Windows.Forms.Button();
-            this.properties_control1 = new ColorSyntaxEditor.properties_control();
             this.button47 = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -493,7 +494,6 @@ namespace ColorSyntaxEditor
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.headerControl9 = new TD.Eyefinder.HeaderControl();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new ColorSyntaxEditor.FlickerFreeRichEditTextBox();
             this.numberLabel = new System.Windows.Forms.Label();
             this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
@@ -548,6 +548,8 @@ namespace ColorSyntaxEditor
             this.saveFD = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.headerControl5 = new TD.Eyefinder.HeaderControl();
+            this.button51 = new System.Windows.Forms.Button();
+            this.button50 = new System.Windows.Forms.Button();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
@@ -570,6 +572,8 @@ namespace ColorSyntaxEditor
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.properties_control1 = new ColorSyntaxEditor.properties_control();
+            this.richTextBox1 = new ColorSyntaxEditor.FlickerFreeRichEditTextBox();
             this.navigationBar2.SuspendLayout();
             this.navigationPane10.SuspendLayout();
             this.headerControl12.SuspendLayout();
@@ -630,7 +634,7 @@ namespace ColorSyntaxEditor
             this.navigationBar2.Location = new System.Drawing.Point(0, 24);
             this.navigationBar2.Name = "navigationBar2";
             this.navigationBar2.PaneFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navigationBar2.SelectedPane = this.navigationPane6;
+            this.navigationBar2.SelectedPane = this.navigationPane11;
             this.navigationBar2.ShowPanes = 6;
             this.navigationBar2.Size = new System.Drawing.Size(144, 672);
             this.navigationBar2.TabIndex = 0;
@@ -1002,7 +1006,7 @@ namespace ColorSyntaxEditor
             this.headerControl1.HeaderFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.headerControl1.Location = new System.Drawing.Point(144, 24);
             this.headerControl1.Name = "headerControl1";
-            this.headerControl1.Size = new System.Drawing.Size(752, 597);
+            this.headerControl1.Size = new System.Drawing.Size(752, 672);
             this.headerControl1.TabIndex = 1;
             // 
             // linkLabel1
@@ -2165,9 +2169,9 @@ namespace ColorSyntaxEditor
             this.headerControl8.Controls.Add(this.headerControl11);
             this.headerControl8.Dock = System.Windows.Forms.DockStyle.Right;
             this.headerControl8.HeaderFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.headerControl8.Location = new System.Drawing.Point(143, 23);
+            this.headerControl8.Location = new System.Drawing.Point(144, 24);
             this.headerControl8.Name = "headerControl8";
-            this.headerControl8.Size = new System.Drawing.Size(752, 580);
+            this.headerControl8.Size = new System.Drawing.Size(752, 672);
             this.headerControl8.TabIndex = 3;
             // 
             // headerControl10
@@ -2212,14 +2216,6 @@ namespace ColorSyntaxEditor
             this.button48.TabIndex = 3;
             this.button48.Text = "Get From Tech Mode";
             this.button48.UseVisualStyleBackColor = true;
-            // 
-            // properties_control1
-            // 
-            this.properties_control1.Location = new System.Drawing.Point(-3, -3);
-            this.properties_control1.Margin = new System.Windows.Forms.Padding(4);
-            this.properties_control1.Name = "properties_control1";
-            this.properties_control1.Size = new System.Drawing.Size(305, 283);
-            this.properties_control1.TabIndex = 0;
             // 
             // button47
             // 
@@ -2343,17 +2339,17 @@ namespace ColorSyntaxEditor
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 40);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(292, 269);
+            this.tabPage2.Size = new System.Drawing.Size(292, 287);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Robot Parameters";
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 40);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(292, 269);
+            this.tabPage4.Size = new System.Drawing.Size(292, 287);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Arithmetic Commands";
             // 
@@ -2413,21 +2409,6 @@ namespace ColorSyntaxEditor
             this.panel2.Size = new System.Drawing.Size(422, 509);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.AcceptsTab = true;
-            this.richTextBox1.AllowDrop = true;
-            this.richTextBox1.AutoWordSelection = true;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(31, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(388, 503);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
-            this.richTextBox1.VScroll += new System.EventHandler(this.richTextBox1_VScroll_1);
             // 
             // numberLabel
             // 
@@ -2872,6 +2853,9 @@ namespace ColorSyntaxEditor
             // 
             // headerControl5
             // 
+            this.headerControl5.BuddyPane = this.navigationPane6;
+            this.headerControl5.Controls.Add(this.button51);
+            this.headerControl5.Controls.Add(this.button50);
             this.headerControl5.Controls.Add(this.label53);
             this.headerControl5.Controls.Add(this.label52);
             this.headerControl5.Controls.Add(this.label51);
@@ -2894,6 +2878,26 @@ namespace ColorSyntaxEditor
             this.headerControl5.Name = "headerControl5";
             this.headerControl5.Size = new System.Drawing.Size(521, 390);
             this.headerControl5.TabIndex = 5;
+            // 
+            // button51
+            // 
+            this.button51.Location = new System.Drawing.Point(174, 295);
+            this.button51.Name = "button51";
+            this.button51.Size = new System.Drawing.Size(99, 42);
+            this.button51.TabIndex = 18;
+            this.button51.Text = "Disconnect Bluetooth";
+            this.button51.UseVisualStyleBackColor = true;
+            this.button51.Click += new System.EventHandler(this.button51_Click);
+            // 
+            // button50
+            // 
+            this.button50.Location = new System.Drawing.Point(41, 294);
+            this.button50.Name = "button50";
+            this.button50.Size = new System.Drawing.Size(99, 43);
+            this.button50.TabIndex = 17;
+            this.button50.Text = "Initialize Bluetooth";
+            this.button50.UseVisualStyleBackColor = true;
+            this.button50.Click += new System.EventHandler(this.button50_Click);
             // 
             // label53
             // 
@@ -3077,6 +3081,29 @@ namespace ColorSyntaxEditor
             // timer5
             // 
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
+            // properties_control1
+            // 
+            this.properties_control1.Location = new System.Drawing.Point(-3, -3);
+            this.properties_control1.Margin = new System.Windows.Forms.Padding(4);
+            this.properties_control1.Name = "properties_control1";
+            this.properties_control1.Size = new System.Drawing.Size(305, 283);
+            this.properties_control1.TabIndex = 0;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.AcceptsTab = true;
+            this.richTextBox1.AllowDrop = true;
+            this.richTextBox1.AutoWordSelection = true;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(31, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(388, 503);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
+            this.richTextBox1.VScroll += new System.EventHandler(this.richTextBox1_VScroll_1);
             // 
             // Form1
             // 
@@ -3271,8 +3298,7 @@ namespace ColorSyntaxEditor
             // setup the event to handle insertion/removal of extensions
             wm.WiimoteExtensionChanged += wm_WiimoteExtensionChanged;
 
-            // connect to the Wiimote
-            wm.Connect();
+
 
             // set the report type to return the IR sensor and accelerometer data (buttons always come back)
             wm.SetReportType(InputReport.IRAccel, true);
@@ -5123,6 +5149,19 @@ namespace ColorSyntaxEditor
                     ir52c.movehigh_rel(0, 0, 0, 0, -30, 0);
                 }
             }
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            // connect to the Wiimote
+            wm.Connect();
+            
+        }
+
+        private void button51_Click(object sender, EventArgs e)
+        {
+            // Disconnect from Wiimote
+            wm.Disconnect();
         }
     }
 }

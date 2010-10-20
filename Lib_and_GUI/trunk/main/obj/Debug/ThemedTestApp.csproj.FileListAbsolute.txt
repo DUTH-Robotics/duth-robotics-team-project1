@@ -979,6 +979,5 @@ C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\ThemedTestApp
 C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\ThemedTestApp.pdb
 C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\IR52cLow.dll
 C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\solvenmove.dll
-C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\WiimoteLib.dll
 C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\solvenmove.pdb
 C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\IR52cLow.pdb
