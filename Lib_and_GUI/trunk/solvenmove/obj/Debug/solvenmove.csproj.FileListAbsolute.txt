@@ -243,3 +243,10 @@ C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\solven
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\solvenmove\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\solvenmove\obj\Debug\solvenmove.dll
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\solvenmove\obj\Debug\solvenmove.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\bin\Debug\solvenmove.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\bin\Debug\solvenmove.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\bin\Debug\IR52cLow.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\bin\Debug\IR52cLow.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\obj\Debug\solvenmove.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\solvenmove\obj\Debug\solvenmove.pdb

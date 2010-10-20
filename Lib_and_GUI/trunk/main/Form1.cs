@@ -10,6 +10,7 @@ using solvenmove;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Collections.Generic;
+using WiimoteLib;
 
 
 //*****************************************************************************************
@@ -48,8 +49,8 @@ namespace ColorSyntaxEditor
     {
         //Declare object of highlvl type
         public volatile highlvl ir52c;
+        private delegate void UpdateWiimoteStateDelegate(WiimoteChangedEventArgs args);
 
-        
         #region Automatic definitions
         private TD.Eyefinder.NavigationBar navigationBar2;
         private TD.Eyefinder.NavigationPane navigationPane6;
@@ -266,6 +267,29 @@ namespace ColorSyntaxEditor
         private Label label44;
         private Label label42;
         private Label label41;
+        private TD.Eyefinder.HeaderControl headerControl5;
+        private CheckBox checkBox1;
+        private CheckBox checkBox10;
+        private CheckBox checkBox9;
+        private CheckBox checkBox8;
+        private CheckBox checkBox7;
+        private CheckBox checkBox6;
+        private CheckBox checkBox5;
+        private CheckBox checkBox4;
+        private CheckBox checkBox3;
+        private CheckBox checkBox2;
+        private Label label53;
+        private Label label52;
+        private Label label51;
+        private Label label50;
+        private Label label49;
+        private Label label48;
+        private Label label47;
+        private Timer timer1;
+        private Timer timer2;
+        private Timer timer3;
+        private Timer timer4;
+        private Timer timer5;
         private Color kCommentColor = Color.Green;
         #endregion
 
@@ -278,6 +302,11 @@ namespace ColorSyntaxEditor
         }
 
         // General Variables
+        Wiimote wm;
+        int n = 0;
+        Boolean GripStatus = true;
+        double[] difMidPX = new double[100000];
+        double[] difMidPY = new double[100000];
         ArrayList PropertiesTextboxes = new ArrayList();
         ArrayList PropertiesLabels = new ArrayList();
         ArrayList PropertiesButtons = new ArrayList();
@@ -304,6 +333,7 @@ namespace ColorSyntaxEditor
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.navigationBar2 = new TD.Eyefinder.NavigationBar();
             this.navigationPane6 = new TD.Eyefinder.NavigationPane();
@@ -444,6 +474,7 @@ namespace ColorSyntaxEditor
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button48 = new System.Windows.Forms.Button();
+            this.properties_control1 = new ColorSyntaxEditor.properties_control();
             this.button47 = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -462,6 +493,7 @@ namespace ColorSyntaxEditor
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.headerControl9 = new TD.Eyefinder.HeaderControl();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new ColorSyntaxEditor.FlickerFreeRichEditTextBox();
             this.numberLabel = new System.Windows.Forms.Label();
             this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
@@ -515,8 +547,29 @@ namespace ColorSyntaxEditor
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFD = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.properties_control1 = new ColorSyntaxEditor.properties_control();
-            this.richTextBox1 = new ColorSyntaxEditor.FlickerFreeRichEditTextBox();
+            this.headerControl5 = new TD.Eyefinder.HeaderControl();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.navigationBar2.SuspendLayout();
             this.navigationPane10.SuspendLayout();
             this.headerControl12.SuspendLayout();
@@ -559,6 +612,7 @@ namespace ColorSyntaxEditor
             this.headerControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.headerControl5.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar2
@@ -576,7 +630,7 @@ namespace ColorSyntaxEditor
             this.navigationBar2.Location = new System.Drawing.Point(0, 24);
             this.navigationBar2.Name = "navigationBar2";
             this.navigationBar2.PaneFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navigationBar2.SelectedPane = this.navigationPane11;
+            this.navigationBar2.SelectedPane = this.navigationPane6;
             this.navigationBar2.ShowPanes = 6;
             this.navigationBar2.Size = new System.Drawing.Size(144, 672);
             this.navigationBar2.TabIndex = 0;
@@ -2159,6 +2213,14 @@ namespace ColorSyntaxEditor
             this.button48.Text = "Get From Tech Mode";
             this.button48.UseVisualStyleBackColor = true;
             // 
+            // properties_control1
+            // 
+            this.properties_control1.Location = new System.Drawing.Point(-3, -3);
+            this.properties_control1.Margin = new System.Windows.Forms.Padding(4);
+            this.properties_control1.Name = "properties_control1";
+            this.properties_control1.Size = new System.Drawing.Size(305, 283);
+            this.properties_control1.TabIndex = 0;
+            // 
             // button47
             // 
             this.button47.Location = new System.Drawing.Point(225, 286);
@@ -2281,17 +2343,17 @@ namespace ColorSyntaxEditor
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(292, 287);
+            this.tabPage2.Size = new System.Drawing.Size(292, 269);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Robot Parameters";
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 40);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(292, 287);
+            this.tabPage4.Size = new System.Drawing.Size(292, 269);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Arithmetic Commands";
             // 
@@ -2351,6 +2413,21 @@ namespace ColorSyntaxEditor
             this.panel2.Size = new System.Drawing.Size(422, 509);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.AcceptsTab = true;
+            this.richTextBox1.AllowDrop = true;
+            this.richTextBox1.AutoWordSelection = true;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(31, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(388, 503);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
+            this.richTextBox1.VScroll += new System.EventHandler(this.richTextBox1_VScroll_1);
             // 
             // numberLabel
             // 
@@ -2793,33 +2870,219 @@ namespace ColorSyntaxEditor
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // properties_control1
+            // headerControl5
             // 
-            this.properties_control1.Location = new System.Drawing.Point(-3, -3);
-            this.properties_control1.Margin = new System.Windows.Forms.Padding(4);
-            this.properties_control1.Name = "properties_control1";
-            this.properties_control1.Size = new System.Drawing.Size(305, 283);
-            this.properties_control1.TabIndex = 0;
+            this.headerControl5.Controls.Add(this.label53);
+            this.headerControl5.Controls.Add(this.label52);
+            this.headerControl5.Controls.Add(this.label51);
+            this.headerControl5.Controls.Add(this.label50);
+            this.headerControl5.Controls.Add(this.label49);
+            this.headerControl5.Controls.Add(this.label48);
+            this.headerControl5.Controls.Add(this.label47);
+            this.headerControl5.Controls.Add(this.checkBox10);
+            this.headerControl5.Controls.Add(this.checkBox9);
+            this.headerControl5.Controls.Add(this.checkBox8);
+            this.headerControl5.Controls.Add(this.checkBox7);
+            this.headerControl5.Controls.Add(this.checkBox6);
+            this.headerControl5.Controls.Add(this.checkBox5);
+            this.headerControl5.Controls.Add(this.checkBox4);
+            this.headerControl5.Controls.Add(this.checkBox3);
+            this.headerControl5.Controls.Add(this.checkBox2);
+            this.headerControl5.Controls.Add(this.checkBox1);
+            this.headerControl5.HeaderFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.headerControl5.Location = new System.Drawing.Point(143, 24);
+            this.headerControl5.Name = "headerControl5";
+            this.headerControl5.Size = new System.Drawing.Size(521, 390);
+            this.headerControl5.TabIndex = 5;
             // 
-            // richTextBox1
+            // label53
             // 
-            this.richTextBox1.AcceptsTab = true;
-            this.richTextBox1.AllowDrop = true;
-            this.richTextBox1.AutoWordSelection = true;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(31, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(388, 503);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
-            this.richTextBox1.VScroll += new System.EventHandler(this.richTextBox1_VScroll_1);
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(398, 172);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(41, 13);
+            this.label53.TabIndex = 16;
+            this.label53.Text = "label53";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(396, 107);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(56, 13);
+            this.label52.TabIndex = 15;
+            this.label52.Text = "GripStatus";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(393, 147);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(25, 13);
+            this.label51.TabIndex = 14;
+            this.label51.Text = "Roll";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(420, 70);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(31, 13);
+            this.label50.TabIndex = 13;
+            this.label50.Text = "MidY";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(421, 213);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(41, 13);
+            this.label49.TabIndex = 12;
+            this.label49.Text = "label49";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(342, 213);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(41, 13);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "label48";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(368, 70);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(31, 13);
+            this.label47.TabIndex = 10;
+            this.label47.Text = "MidX";
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(189, 222);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(54, 17);
+            this.checkBox10.TabIndex = 9;
+            this.checkBox10.Text = "Minus";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(81, 222);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(46, 17);
+            this.checkBox9.TabIndex = 8;
+            this.checkBox9.Text = "Plus";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(189, 147);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(47, 17);
+            this.checkBox8.TabIndex = 7;
+            this.checkBox8.Text = "Two";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(189, 187);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(54, 17);
+            this.checkBox7.TabIndex = 6;
+            this.checkBox7.Text = "Down";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(81, 187);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(40, 17);
+            this.checkBox6.TabIndex = 5;
+            this.checkBox6.Text = "Up";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(189, 70);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(33, 17);
+            this.checkBox5.TabIndex = 4;
+            this.checkBox5.Text = "B";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(81, 147);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(46, 17);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "One";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(189, 107);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(43, 17);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "IR2";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(81, 107);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(43, 17);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "IR1";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(81, 70);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(33, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "A";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(896, 696);
+            this.Controls.Add(this.headerControl5);
             this.Controls.Add(this.navigationBar2);
             this.Controls.Add(this.headerControl8);
             this.Controls.Add(this.headerControl3);
@@ -2879,6 +3142,8 @@ namespace ColorSyntaxEditor
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.headerControl5.ResumeLayout(false);
+            this.headerControl5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2904,7 +3169,7 @@ namespace ColorSyntaxEditor
         private void updateNumberLabel()
         {
 
-            Point pos = new Point(0, 0);
+            System.Drawing.Point pos = new System.Drawing.Point(0, 0);
             int firstIndex = richTextBox1.GetCharIndexFromPosition(pos);
             int firstLine = richTextBox1.GetLineFromCharIndex(firstIndex);
 
@@ -2929,7 +3194,7 @@ namespace ColorSyntaxEditor
 
             int d = richTextBox1.GetPositionFromCharIndex(0).Y %
                                       (richTextBox1.Font.Height + 1);
-            numberLabel.Location = new Point(0, d);
+            numberLabel.Location = new System.Drawing.Point(0, d);
 
             updateNumberLabel();
 
@@ -2997,6 +3262,135 @@ namespace ColorSyntaxEditor
             PropertiesButtons.Add(properties_control1.button11);
             PropertiesButtons.Add(properties_control1.button12);
 
+            // create a new instance of the Wiimote
+            wm = new Wiimote();
+
+            // setup the event to handle state changes
+            wm.WiimoteChanged += wm_WiimoteChanged;
+
+            // setup the event to handle insertion/removal of extensions
+            wm.WiimoteExtensionChanged += wm_WiimoteExtensionChanged;
+
+            // connect to the Wiimote
+            wm.Connect();
+
+            // set the report type to return the IR sensor and accelerometer data (buttons always come back)
+            wm.SetReportType(InputReport.IRAccel, true);
+
+            }
+
+        void wm_WiimoteExtensionChanged(object sender, WiimoteExtensionChangedEventArgs args)
+        {
+            if (args.Inserted)
+                wm.SetReportType(InputReport.IRExtensionAccel, true);    // return extension data
+            else
+                wm.SetReportType(InputReport.IRAccel, true);            // back to original mode
+        }
+
+        void wm_WiimoteChanged(object sender, WiimoteChangedEventArgs args)
+        {
+            // current state information
+            UpdateState(args);
+
+        }
+
+        //gia na mporei na kanei polla threads mazi
+        public void UpdateState(WiimoteChangedEventArgs args)
+        {
+            BeginInvoke(new UpdateWiimoteStateDelegate(UpdateWiimoteChanged), args);
+        }
+
+        WiimoteState ws;
+        public void UpdateWiimoteChanged(WiimoteChangedEventArgs args)
+        {
+            ws = args.WiimoteState;
+            //energopoiisi timer gia ti thesi tou vraxiona
+            if (ws.ButtonState.A)
+            {
+                timer1.Enabled = true;
+                timer1.Start();
+
+            }
+            else
+            {
+                timer1.Enabled = false;
+                n = 0;
+            }
+
+
+            //energopoiisi timer gia prosanarolismo tou gripper
+            if ((ws.ButtonState.One) & ((ws.AccelState.Values.X > 0.25) || (ws.AccelState.Values.X < -0.25)))
+            {
+                timer2.Enabled = true;
+                timer2.Start();
+            }
+            else { timer2.Enabled = false; }
+
+            //pitch 
+            if (ws.ButtonState.Two)
+            {
+                timer5.Enabled = true;
+                timer5.Start();
+            }
+            else { timer5.Enabled = false; }
+
+
+
+            //timer gia open/closed
+            timer1.Enabled = true;
+            timer1.Start();
+
+            if (ws.ButtonState.Plus)
+            {
+                //init
+                ir52c.movehigh_abs(0, 0, 857, 0, 90, 0);
+            }
+
+            if (ws.ButtonState.Minus)
+            {
+                //puzzle button state
+                ir52c.movehigh_abs(300, 0, 50, 0, -90, 0);
+            }
+
+            if (GripStatus)
+            {
+                label52.Text = "Open";
+            }
+            else
+            { label52.Text = "Closed"; }
+
+
+            //energopoiisi timer gia ton 3o axona
+            if ((ws.ButtonState.Up) || (ws.ButtonState.Down))
+            {
+
+                timer4.Enabled = true;
+                timer4.Start();
+            }
+            else
+            {
+                timer4.Enabled = false;
+            }
+
+
+
+
+            checkBox6.Checked = ws.ButtonState.Up;
+            checkBox7.Checked = ws.ButtonState.Down;
+            checkBox4.Checked = ws.ButtonState.One;
+            checkBox1.Checked = ws.ButtonState.A;
+            checkBox5.Checked = ws.ButtonState.B;
+            checkBox2.Checked = ws.IRState.IRSensors[0].Found;
+            checkBox3.Checked = ws.IRState.IRSensors[1].Found;
+            checkBox8.Checked = ws.ButtonState.Two;
+            checkBox9.Checked = ws.ButtonState.Plus;
+            checkBox10.Checked = ws.ButtonState.Minus;
+
+
+            if (ws.ButtonState.A)
+            {
+                label53.Text = ws.AccelState.Values.X.ToString();
+            }
         }
 
         
@@ -4594,6 +4988,141 @@ namespace ColorSyntaxEditor
 
         #endregion
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            double tempMidX;
+            double tempMidY;
+
+
+            if ((ws.IRState.IRSensors[0].Found) & (ws.IRState.IRSensors[1].Found))
+            {
+                n++;
+                difMidPX[n] = (ws.IRState.Midpoint.X) * 200;
+                difMidPY[n] = (ws.IRState.Midpoint.Y) * 200;
+                if (n >= 2)
+                {
+                    tempMidX = difMidPX[n] - difMidPX[n - 1];
+                    tempMidY = difMidPY[n] - difMidPY[n - 1];
+                    label47.Text = tempMidX.ToString();
+                    label50.Text = tempMidY.ToString();
+                    if (tempMidX > tempMidY)
+                    {
+                        if (tempMidX > 0)
+                        {
+                            ir52c.movehigh_rel(0, -10, 0, 0, 0, 0);
+                        }
+                        if (tempMidX < 0)
+                        {
+                            ir52c.movehigh_rel(0, 10, 0, 0, 0, 0);
+                        }
+                    }
+                    if (tempMidY > tempMidX)
+                    {
+                        if (tempMidY > 0)
+                        {
+                            ir52c.movehigh_rel(0, 0, 10, 0, 0, 0);
+                        }
+                        if (tempMidY < 0)
+                        {
+                            ir52c.movehigh_rel(0, 0, -10, 0, 0, 0);
+                        }
+                    }
+                }
+
+                // difMidPY[n] = (ws.IRState.Midpoint.Y) * 200;
+                //if (n >= 2)
+                //{
+                //   tempMidY = difMidPY[n] - difMidPY[n - 1];
+                //  if (tempMidY > 0)
+                // {
+                //     ir52c.movehigh_rel(0, 0, 10, 0, 0, 0);
+                // //ir52c.movehigh_rel(0, 0, (int)zstep.Value * ((int)tempMidY * 100), 0, 0, 0);
+                // //RelativeMove(2, 3, (int)zstep.Value * ((int)tempMidY * 100));
+                // }
+                //if (tempMidY < 0)
+                // {
+                //   ir52c.movehigh_rel(0, 0, -10, 0, 0, 0);
+                //   //ir52c.movehigh_rel(0, 0, (int)zstep.Value * ((int)tempMidY * 100), 0, 0, 0);
+                //  //RelativeMove(2, 3, (int)zstep.Value * ((int)tempMidY * 100));
+                // }
+                //  label50.Text = tempMidY.ToString();
+                // }
+            }
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            label51.Text = ws.AccelState.Values.X.ToString();
+            if (ws.AccelState.Values.X > 0)
+            {
+                ir52c.movehigh_rel(0, 0, 0, 30, 0, 0);
+            }
+
+            if (ws.AccelState.Values.X < 0)
+            {
+                ir52c.movehigh_rel(0, 0, 0, -30, 0, 0);
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (ws.ButtonState.B)
+            {
+
+                GripStatus = !GripStatus;
+                if (GripStatus == true)
+                {
+                    CloseGripper();
+                }
+                else
+                {
+                    OpenGripper();
+                }
+
+            }
+
+
+
+
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if (ws.ButtonState.Up)
+            {
+                ir52c.movehigh_rel(50, 0, 0, 0, 0, 0);
+            }
+
+            if (ws.ButtonState.Down)
+            {
+                ir52c.movehigh_rel(-50, 0, 0, 0, 0, 0);
+            }
+
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            double tempMidY;
+
+            n++;
+            difMidPY[n] = (ws.IRState.Midpoint.Y) * 200;
+            if (n >= 2)
+            {
+
+                tempMidY = difMidPY[n] - difMidPY[n - 1];
+                label50.Text = tempMidY.ToString();
+
+                if (tempMidY > 0)
+                {
+
+                    ir52c.movehigh_rel(0, 0, 0, 0, 30, 0);
+                }
+                if (tempMidY < 0)
+                {
+                    ir52c.movehigh_rel(0, 0, 0, 0, -30, 0);
+                }
+            }
+        }
     }
-        
 }

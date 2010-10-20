@@ -965,3 +965,20 @@ C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718b\main\
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718b\main\bin\Debug\solvenmove.dll
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718b\main\bin\Debug\solvenmove.pdb
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718b\main\bin\Debug\IR52cLow.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ThemedTestApp.csproj.ResolveComReference.cache
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ThemedTestApp.exe
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ThemedTestApp.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ColorSyntaxEditor.AboutForm.resources
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ColorSyntaxEditor.FlickerFreeRichEditTextBox.resources
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ColorSyntaxEditor.Form1.resources
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ThemedTestApp.Properties.Resources.resources
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ColorSyntaxEditor.properties_control.resources
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\obj\Debug\ThemedTestApp.csproj.GenerateResource.Cache
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\ThemedTestApp.exe
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\ThemedTestApp.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\IR52cLow.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\solvenmove.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\WiimoteLib.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\solvenmove.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\main\bin\Debug\IR52cLow.pdb

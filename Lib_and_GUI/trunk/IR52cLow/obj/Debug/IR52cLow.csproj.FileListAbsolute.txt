@@ -238,3 +238,10 @@ C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\IR52cL
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\IR52cLow\bin\Debug\IR52cLow.pdb
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\IR52cLow\bin\Debug\solvenmove.dll
 C:\Documents and Settings\Mosaros\My Documents\My Dropbox\Project1\100718\IR52cLow\bin\Debug\solvenmove.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\bin\Debug\IR52cLow.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\bin\Debug\IR52cLow.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\bin\Debug\solvenmove.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\bin\Debug\solvenmove.pdb
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\obj\Debug\IR52cLow.dll
+C:\Documents and Settings\Team1\Desktop\Lib_and_GUI\IR52cLow\obj\Debug\IR52cLow.pdb

@@ -96,6 +96,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="WiimoteLib, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GAMATOSYNH MHN TO SVHSETE GIA KANENA LOGO!!!\main\bin\Debug\WiimoteLib.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsControlLibrary2, Version=1.0.2212.27748, Culture=neutral" />
     <COMReference Include="ControlsLib">
       <Guid>{8A5FB558-ECF2-44F3-A77B-CCF12DF0B757}</Guid>
