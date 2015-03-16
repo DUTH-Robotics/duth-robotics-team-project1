@@ -1,0 +1,1 @@
+This is a project of the Robotics Team of the Democritus University of Thrace. It includes libraries and a GUI for controlling a 5-degrees-of-freedom robotic arm.
